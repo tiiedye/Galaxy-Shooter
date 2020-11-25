@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*
+ * There are a lot of comments in this code that are notes for educational purposes,
+ * and lines of code that have been commented out for me to refer back to as examples of alternative ways
+ * to accomplish the same thing. I am still learning, and having examples to refer back to is a good
+ * way for me to able to broaden my coding horizons. Generally I wouldn't have as many "obvious"
+ * comments, otherwise. Also keep in mind this is my first game ever, and please enjoy!
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +23,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // take the current position = new position (0, 0, 0)
+        // Zeroes out start position.
         transform.position = new Vector3(0, 0, 0);
     }
 
@@ -25,6 +33,7 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+        // NOTE:
         // transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
         // transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
                 // above code does the same as below code.
@@ -32,5 +41,19 @@ public class Player : MonoBehaviour
                 // and the same again...
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
+
+        // Player bounds for y axis.
+        if (transform.position.y >= 0) {
+            transform.position = new Vector3(transform.position.x, 0, 0);
+        } else if (transform.position.y <= -3.8f) {
+            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+        }
+
+        // Player bounds for x axis, allows for player wrapping.
+        if (transform.position.x > 11.3f) {
+            transform.position = new Vector3(-11.3f, transform.position.y, 0);
+        } else if (transform.position.x < -11.3f) {
+            transform.position = new Vector3(11.3f, transform.position.y, 0);
+        }
     }
 }
