@@ -41,20 +41,16 @@ public class Player : MonoBehaviour
         // NOTE:
         // transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
         // transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
-                // above code does the same as below code.
+                // above code does the same as below code:
         // transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * _speed * Time.deltaTime);
-                // and the same again...
+                // and the same again...:
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        // Player bounds for y axis.
-        if (transform.position.y >= 0) {
-            transform.position = new Vector3(transform.position.x, 0, 0);
-        } else if (transform.position.y <= -3.8f) {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
-        }
+        // Player bounds for y axis. NOTE: Can use Clamping or an if/else statement.
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
 
-        // Player bounds for x axis, allows for player wrapping.
+        // Player bounds for x axis, allows for player wrapping. Cannot use Clamping b/c of player wrapping.
         if (transform.position.x > 11.3f) {
             transform.position = new Vector3(-11.3f, transform.position.y, 0);
         } else if (transform.position.x < -11.3f) {
