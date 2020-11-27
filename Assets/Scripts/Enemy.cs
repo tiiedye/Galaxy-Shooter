@@ -19,4 +19,24 @@ public class Enemy : MonoBehaviour
             transform.position = new Vector3(randomX, 7f, 0);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if Enemy collides with Player, Damage the Player and Destroy Enemy.
+        if (other.tag == "Player") {
+            Player player = other.transform.GetComponent<Player>();
+
+            if (player != null) {
+                player.Damage();
+            }
+
+            Destroy(this.gameObject);
+        }
+
+        // Destroys Enemy & Laser if they collide
+        if (other.tag == "Laser") {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }

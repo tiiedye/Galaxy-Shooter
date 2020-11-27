@@ -19,12 +19,14 @@ public class Player : MonoBehaviour
     // serialize field attribute allows developer to read & modify private variables in the unity inspector, but other game objects
         // and scripts cannot touch it.
     [SerializeField]
-    private float _speed = 3.5f;
+    private float _speed = 5f;
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
-    private float _fireRate = 0.15f;
+    private float _fireRate = .15f;
     private float _canFire = -1f;
+    [SerializeField]
+    private int _lives = 3;
 
     void Start()
     {
@@ -72,5 +74,16 @@ public class Player : MonoBehaviour
         // Spawns Laser, and dictates Laser cooldown.
         _canFire = Time.time + _fireRate;
         Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+    }
+
+    public void Damage()
+    {
+        // Decrements number of lives.
+        _lives--;
+
+        // If out of lives, Destroy Player.
+        if (_lives < 1) {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 582413228}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49927c8c917726448a6d49e4bfd7990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3.5
+  _speed: 5
   _laserPrefab: {fileID: 6807754051863773149, guid: 44c0ec42ce8ef524aa8e0a6b105c697f,
     type: 3}
-  _fireRate: 0.5
+  _fireRate: 0.15
 --- !u!1 &592249808
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 7366322243585836544, guid: ef94d460aa0cc6e4b8c2eda044e7d3a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7366322243585836544, guid: ef94d460aa0cc6e4b8c2eda044e7d3a2,
         type: 3}
