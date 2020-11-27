@@ -17,7 +17,12 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // translate laser up
+        // Moves laser up when spawned.
         transform.Translate(Vector3.up * _laserVelocity * Time.deltaTime);
+
+        // Destroy Laser when off screen.
+        if (transform.position.y > 8f) {
+            Destroy(this.gameObject);
+        }
     }
 }
