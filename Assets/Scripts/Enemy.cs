@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // if Enemy collides with Player, Damage the Player and Destroy Enemy.
         if (other.tag == "Player") {
