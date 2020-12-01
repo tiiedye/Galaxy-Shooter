@@ -15,6 +15,10 @@ public class Laser : MonoBehaviour
 
         // Destroy Laser when off screen.
         if (transform.position.y > 8f) {
+            if (transform.parent != null) {
+                Destroy(transform.parent.gameObject);
+            }
+
             Destroy(this.gameObject);
         }
     }
