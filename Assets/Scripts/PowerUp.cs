@@ -18,10 +18,17 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    // Destroys PowerUp if collected by Player.
+    // Destroys PowerUp if collected by Player, and activates the TripleShot PowerUp.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player") {
+            // communicate w/ player script
+            Player player = other.transform.GetComponent<Player>();
+            
+            if(player != null) {
+                player.TripleShotActive();
+            }
+
             Destroy(this.gameObject);
         }
     }
