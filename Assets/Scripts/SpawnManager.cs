@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    // Enemy Variables
     [SerializeField]
     private GameObject _enemyPrefab;
     [SerializeField]
     private GameObject _enemyContainer;
     private bool _stopSpawning = false;
 
+    // PowerUp Variables
+    [SerializeField]
+    private GameObject _tripleShotPowerUpPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(EnemySpawnRoutine());
+        StartCoroutine(PowerUpSpawnRoutine());
     }
 
     // Update is called once per frame
@@ -23,9 +28,9 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    IEnumerator SpawnRoutine()
+    // instantiates enemy prefab, and waits 5 seconds before spawning another enemy.
+    IEnumerator EnemySpawnRoutine()
     {
-        // instantiates enemy prefab, and waits 5 seconds before spawning another enemy.
         while (_stopSpawning == false) {
             float randomX = Random.Range(-8f, 8f);
             Vector3 posToSpwan = new Vector3(randomX, 7, 0);
@@ -35,6 +40,18 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
 
             yield return new WaitForSeconds(5.0f);
+        }
+    }
+
+    // Spawns a PowerUp every 3 to 7 seconds
+    IEnumerator PowerUpSpawnRoutine()
+    {
+        while (_stopSpawning == false) {
+            float randomX = Random.Range(-8f, 8f);
+            Vector3 posToSpawn = new Vector3(randomX, 7, 0);
+            Instantiate(_tripleShotPowerUpPrefab, posToSpawn, Quaternion.identity);
+
+            yield return new WaitForSeconds(Random.Range(3f, 7f));
         }
     }
 
