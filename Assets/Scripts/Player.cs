@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         transform.Translate(direction * _speed * Time.deltaTime);
 
         // Player bounds for y axis. NOTE: Can use Clamping or an if/else statement.
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 5), 0);
 
         // Player bounds for x axis, allows for player wrapping. Cannot use Clamping b/c of player wrapping.
         if (transform.position.x > 11.3f) {
