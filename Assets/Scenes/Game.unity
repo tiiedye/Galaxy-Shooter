@@ -335,6 +335,9 @@ MonoBehaviour:
   _tripleShotActive: 0
   _tripleShotPrefab: {fileID: 3430856500940190954, guid: 62bbfe066a8e4554ba58ce36e2aa6d9d,
     type: 3}
+  _speedBoostActive: 0
+  _speedBoostPrefab: {fileID: 0}
+  _speedBoostMultiplier: 2
 --- !u!212 &693579225
 SpriteRenderer:
   m_ObjectHideFlags: 0

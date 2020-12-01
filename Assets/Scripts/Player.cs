@@ -37,6 +37,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
+    // Speed Boost Variables
+    [SerializeField]
+    private bool _speedBoostActive = false;
+    [SerializeField]
+    private GameObject _speedBoostPrefab;
+    [SerializeField]
+    private float _speedBoostMultiplier = 2f;
+
     // Spawn variables
     private SpawnManager _spawnManager;
 
@@ -127,6 +135,22 @@ public class Player : MonoBehaviour
         while (_tripleShotActive == true) {
             yield return new WaitForSeconds(5.0f);
             _tripleShotActive = false;
+        }
+    }
+
+    public void SpeedBoostActive()
+    {
+        _speedBoostActive = true;
+        _speed *= _speedBoostMultiplier;
+        StartCoroutine(SpeedBoostPowerDown());
+    }
+
+    IEnumerator SpeedBoostPowerDown()
+    {
+        while (_speedBoostActive == true) {
+            yield return new WaitForSeconds(5.0f);
+            _speedBoostActive = false;
+            _speed /= _speedBoostMultiplier;
         }
     }
 }
