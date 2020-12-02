@@ -4,7 +4,4 @@
 A Galaxy Shooter game made with Unity & GameDevHQ.
 
 ### Game Mockup
-![](Assets/GIFS/Mockup.gif)
-
-### Beginning to add Sprites and Functionality
-![](Assets/GIFS/beg-sprites.gif)
+<img align="left" height="190" src="Assets/GIFS/Mockup.gif"> <img height="190" src="Assets/GIFS/beg-sprites.gif">
