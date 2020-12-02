@@ -31,19 +31,20 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = .15f;
     private float _canFire = -1f;
+
     // Triple Shot variables
-    [SerializeField]
     private bool _tripleShotActive = false;
     [SerializeField]
     private GameObject _tripleShotPrefab;
 
     // Speed Boost Variables
-    [SerializeField]
     private bool _speedBoostActive = false;
-    [SerializeField]
-    private GameObject _speedBoostPrefab;
-    [SerializeField]
     private float _speedBoostMultiplier = 2f;
+
+    // Shield Variables
+    private bool _shieldActive = false;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
 
     // Spawn variables
     private SpawnManager _spawnManager;
@@ -111,8 +112,15 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        // Decrements number of lives.
-        _lives--;
+        // If shields is active, take no damage and deactivate shields.
+        if (_shieldActive == true) {
+            _shieldActive = false;
+            _shieldVisualizer.SetActive(false);
+            return;
+        } else {
+            // Decrements number of lives.
+            _lives--;
+        }
 
         // If out of lives, Destroy Player.
         if (_lives < 1) {
@@ -152,5 +160,11 @@ public class Player : MonoBehaviour
             _speedBoostActive = false;
             _speed /= _speedBoostMultiplier;
         }
+    }
+
+    public void ShieldActive()
+    {
+        _shieldActive = true;
+        _shieldVisualizer.SetActive(true);
     }
 }
