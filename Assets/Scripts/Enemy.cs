@@ -6,6 +6,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private float _enemySpeed = 4.0f;
+    private Player _player;
+
+    void Start()
+    {
+        _player = GameObject.Find("Player").GetComponent<Player>();    
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,6 +29,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // if Enemy collides with Player, Damage the Player and Destroy Enemy.
+
         if (other.tag == "Player") {
             Player player = other.transform.GetComponent<Player>();
 
@@ -33,9 +40,14 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        // Destroys Enemy & Laser if they collide
+        // Destroys Enemy & Laser if they collide, and updates score.
         if (other.tag == "Laser") {
             Destroy(other.gameObject);
+
+            if (_player != null) {
+                _player.AddScore();
+            }
+
             Destroy(this.gameObject);
         }
     }

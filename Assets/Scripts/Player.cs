@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private float _speed = 5f;
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
+    private int _score;
 
     // Laser variables
     [SerializeField]
@@ -49,6 +51,9 @@ public class Player : MonoBehaviour
     // Spawn variables
     private SpawnManager _spawnManager;
 
+    // UI Variables
+    private UIManager _uiManager;
+
 
     void Start()
     {
@@ -56,9 +61,14 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, 0, 0);
         // Gets access to SpawnManager script
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         
         if (_spawnManager == null) {
             Debug.LogError("Spawn Manager is NULL");
+        }
+
+        if (_uiManager == null) {
+            Debug.LogError("UI Manager is NULL");
         }
     }
 
@@ -166,5 +176,13 @@ public class Player : MonoBehaviour
     {
         _shieldActive = true;
         _shieldVisualizer.SetActive(true);
+    }
+
+    // method to add 10 to score
+    // communicate w/ UI to update the score
+    public void AddScore()
+    {
+        _score += 10;
+        _uiManager.UpdateScore(_score);
     }
 }

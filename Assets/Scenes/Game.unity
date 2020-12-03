@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _lives: 3
+  _score: 0
   _laserPrefab: {fileID: 129523194952141263, guid: 44c0ec42ce8ef524aa8e0a6b105c697f,
     type: 3}
   _fireRate: 0.15
@@ -605,6 +606,7 @@ GameObject:
   - component: {fileID: 1039669616}
   - component: {fileID: 1039669615}
   - component: {fileID: 1039669614}
+  - component: {fileID: 1039669618}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -692,6 +694,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1039669618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039669613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0de1f1835957f46b486391e86ba547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 1284362169}
 --- !u!1 &1284362167
 GameObject:
   m_ObjectHideFlags: 0
