@@ -132,6 +132,8 @@ public class Player : MonoBehaviour
             _lives--;
         }
 
+        _uiManager.UpdateLives(_lives);
+
         // If out of lives, Destroy Player.
         if (_lives < 1) {
             // communicate w/ spawn manager, stop spawning enemies
