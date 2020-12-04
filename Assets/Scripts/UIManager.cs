@@ -14,12 +14,21 @@ public class UIManager : MonoBehaviour
     private Sprite[] _liveSprites;
     [SerializeField]
     private Text _gameOverText;
+    [SerializeField]
+    private Text _restartText;
+    private GameManager _gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _scoreText.text = "Score: " + 0;
         _gameOverText.gameObject.SetActive(false);
+        _gameOverText.gameObject.SetActive(false);
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        if (_gameManager == null) {
+            Debug.LogError("Game Manager is null");
+        }
     }
 
     public void UpdateScore(int playerScore)
@@ -32,9 +41,16 @@ public class UIManager : MonoBehaviour
         _livesImage.sprite = _liveSprites[currentLives];
 
         if (currentLives == 0) {
-            _gameOverText.gameObject.SetActive(true);
-            StartCoroutine(BlinkingText());
+            GameOverSequence();
         }
+    }
+
+    void GameOverSequence()
+    {
+        _gameManager.GameOver();
+        _gameOverText.gameObject.SetActive(true);
+        _restartText.gameObject.SetActive(true);
+        StartCoroutine(BlinkingText());
     }
 
     IEnumerator BlinkingText()
