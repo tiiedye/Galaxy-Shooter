@@ -15,22 +15,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject[] powerUps;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartSpawning()
     {
         StartCoroutine(EnemySpawnRoutine());
         StartCoroutine(PowerUpSpawnRoutine());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     // instantiates enemy prefab, and waits 5 seconds before spawning another enemy.
     IEnumerator EnemySpawnRoutine()
     {
+        yield return new WaitForSeconds(3.0f);
+
         while (_stopSpawning == false) {
             float randomX = Random.Range(-8f, 8f);
             Vector3 posToSpwan = new Vector3(randomX, 7, 0);
@@ -46,6 +41,8 @@ public class SpawnManager : MonoBehaviour
     // Spawns a PowerUp every 3 to 7 seconds
     IEnumerator PowerUpSpawnRoutine()
     {
+        yield return new WaitForSeconds(8.0f);
+
         while (_stopSpawning == false) {
             float randomX = Random.Range(-8f, 8f);
             Vector3 posToSpawn = new Vector3(randomX, 7, 0);

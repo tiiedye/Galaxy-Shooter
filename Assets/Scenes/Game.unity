@@ -1250,6 +1250,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 213135461796031108, guid: 7557b4c7cccaaf94abd188f34ae62a92,
         type: 3}
+    - target: {fileID: 3940655611356645759, guid: b4d6630fc03c85e4e9125f790ff6e1f9,
+        type: 3}
+      propertyPath: _rotateSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4092471589607998052, guid: b4d6630fc03c85e4e9125f790ff6e1f9,
         type: 3}
       propertyPath: m_LocalPosition.x
