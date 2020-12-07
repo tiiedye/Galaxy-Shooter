@@ -53,6 +53,10 @@ public class Player : MonoBehaviour
 
     // UI Variables
     private UIManager _uiManager;
+    [SerializeField]
+    private GameObject _rightWingDmg;
+    [SerializeField]
+    private GameObject _leftWingDmg;
 
 
     void Start()
@@ -135,7 +139,13 @@ public class Player : MonoBehaviour
         _uiManager.UpdateLives(_lives);
 
         // If out of lives, Destroy Player.
-        if (_lives < 1) {
+        if (_lives == 2) {
+            // right engine damage
+            _rightWingDmg.SetActive(true);
+        } else if (_lives == 1) {
+            // left engine damage
+            _leftWingDmg.SetActive(true);
+        } else if (_lives < 1) {
             // communicate w/ spawn manager, stop spawning enemies
             _spawnManager.OnPlayerDeath();
             // Destroys player
