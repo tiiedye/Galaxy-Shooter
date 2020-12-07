@@ -829,14 +829,14 @@ MonoBehaviour:
   _speed: 5
   _lives: 3
   _score: 0
+  _rightWingDmg: {fileID: 101221022}
+  _leftWingDmg: {fileID: 1584836421}
   _laserPrefab: {fileID: 129523194952141263, guid: 44c0ec42ce8ef524aa8e0a6b105c697f,
     type: 3}
   _fireRate: 0.15
   _tripleShotPrefab: {fileID: 3430856500940190954, guid: 62bbfe066a8e4554ba58ce36e2aa6d9d,
     type: 3}
   _shieldVisualizer: {fileID: 339055357}
-  _rightWingDmg: {fileID: 101221022}
-  _leftWingDmg: {fileID: 1584836421}
 --- !u!212 &693579225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1372,7 @@ Animator:
   m_GameObject: {fileID: 1584836421}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 216bc0c2c1837434a8ece567a08ae59e, type: 2}
+  m_Controller: {fileID: 9100000, guid: fbf4dc8fe5f01a84c98c722764d43fe5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

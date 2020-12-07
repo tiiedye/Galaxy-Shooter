@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     [SerializeField]
     private int _score;
+    [SerializeField]
+    private GameObject _rightWingDmg, _leftWingDmg;
 
     // Laser variables
     [SerializeField]
@@ -53,11 +55,6 @@ public class Player : MonoBehaviour
 
     // UI Variables
     private UIManager _uiManager;
-    [SerializeField]
-    private GameObject _rightWingDmg;
-    [SerializeField]
-    private GameObject _leftWingDmg;
-
 
     void Start()
     {
@@ -138,7 +135,6 @@ public class Player : MonoBehaviour
 
         _uiManager.UpdateLives(_lives);
 
-        // If out of lives, Destroy Player.
         if (_lives == 2) {
             // right engine damage
             _rightWingDmg.SetActive(true);
