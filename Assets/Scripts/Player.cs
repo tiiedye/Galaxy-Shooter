@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = .15f;
     private float _canFire = -1f;
+    [SerializeField]
+    private GameObject _explosionPrefab;
 
     // Triple Shot variables
     private bool _tripleShotActive = false;
@@ -160,6 +162,7 @@ public class Player : MonoBehaviour
             // communicate w/ spawn manager, stop spawning enemies
             _spawnManager.OnPlayerDeath();
             // Destroys player
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
