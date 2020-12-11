@@ -9,4 +9,4 @@ A Galaxy Shooter game made with Unity & GameDevHQ.
 <img align="left" height="190" src="Assets/GIFS/Mockup.gif"> <img height="190" src="Assets/GIFS/beg-sprites.gif">
 
 ### Main Menu to Game
-<img height="250" src="Assets/GIFS/Menu-to-game.gif">
+<img height="400" src="Assets/GIFS/Menu-to-game.gif">
