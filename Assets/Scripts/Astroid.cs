@@ -26,8 +26,9 @@ public class Astroid : MonoBehaviour
     {
         if (other.tag == "Laser") {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
 
+            Destroy(other.gameObject);
+            Destroy(GetComponent<Collider2D>());
             Destroy(this.gameObject, 0.15f);
         }
 
@@ -39,6 +40,7 @@ public class Astroid : MonoBehaviour
             }
 
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(GetComponent<Collider2D>());
             Destroy(this.gameObject);
         }
     }
