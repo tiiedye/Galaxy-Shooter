@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     private int _score;
     [SerializeField]
     private GameObject _rightWingDmg, _leftWingDmg;
+    private float _Iframe = 0.5f;
+    private float _dmgBuffer = -1.0f;
 
     // Laser variables
     [SerializeField]
@@ -140,15 +142,21 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        // If shields is active, take no damage and deactivate shields.
-        if (_shieldActive == true) {
-            _shieldActive = false;
-            _shieldVisualizer.SetActive(false);
-            return;
-        } else {
-            // Decrements number of lives.
-            _lives--;
+
+        if (Time.time > _dmgBuffer) {
+            _dmgBuffer = Time.time + _Iframe;
+
+            // If shields is active, take no damage and deactivate shields.
+            if (_shieldActive == true) {
+                _shieldActive = false;
+                _shieldVisualizer.SetActive(false);
+                return;
+            } else {
+                // Decrements number of lives.
+                _lives--;
+            }
         }
+
 
         _uiManager.UpdateLives(_lives);
 
