@@ -75,7 +75,7 @@ public class SpawnManager : MonoBehaviour
 
             newPowerUps.transform.parent = _spawnManager.transform;
 
-            yield return new WaitForSeconds(Random.Range(6f, 10f));
+            yield return new WaitForSeconds(Random.Range(8f, 12f));
         }
     }
 
