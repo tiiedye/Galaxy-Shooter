@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true) {
             SceneManager.LoadScene(1); // Current Game Scene
         }
+
+        // if esc is pressed, quit application.
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     }
 
     public void GameOver()
