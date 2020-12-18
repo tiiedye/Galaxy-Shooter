@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: d0d1c62a9fbac2a4c850918949d2e5a2
   - enabled: 1
-    path: Assets/Scenes/Single_Player.unity
+    path: Assets/Scenes/Game.unity
     guid: 898dd06651eb787428b2783032151d50
   - enabled: 1
     path: Assets/Scenes/Co_Op.unity
