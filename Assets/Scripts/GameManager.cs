@@ -23,12 +23,19 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P)) {
             _pauseMenu.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0.0f;
         }
     }
 
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void ClosePause()
+    {
+        // Hides pause menu and un-pauses game.
+        _pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
