@@ -295,8 +295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -88, y: 10}
-  m_SizeDelta: {x: 183.89789, y: 22.318558}
+  m_AnchoredPosition: {x: -88, y: 18.08}
+  m_SizeDelta: {x: 183.89789, y: 36.159252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &565467863
 MonoBehaviour:
@@ -330,7 +330,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press 'ESC' anytime to Quit
+  m_Text: 'Press ''ESC'' anytime to Quit
+
+    Press ''P'' to Pause Game'
 --- !u!222 &565467864
 CanvasRenderer:
   m_ObjectHideFlags: 0

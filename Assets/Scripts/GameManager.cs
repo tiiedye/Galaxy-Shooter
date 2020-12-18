@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private bool _isGameOver;
+    [SerializeField]
+    private GameObject _pauseMenu;
 
     private void Update()
     {
@@ -17,6 +19,11 @@ public class GameManager : MonoBehaviour
         // if esc is pressed, quit application.
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            _pauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
