@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
     {
         // Zeroes out start position.
         transform.position = new Vector3(0, 0, 0);
+
         // Gets access to SpawnManager script
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         if (_spawnManager == null) {
