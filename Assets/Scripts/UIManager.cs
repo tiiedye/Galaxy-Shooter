@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     // handle to Text
     [SerializeField]
     private Text _scoreText;
+    private int _score;
     [SerializeField]
     private Image _livesImage;
     [SerializeField]
@@ -32,9 +33,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int playerScore)
+    public void UpdateScore()
     {
-        _scoreText.text = "Score: " + playerScore.ToString();
+        _score += 10;
+        _scoreText.text = "Score: " + _score;
     }
 
     public void UpdateLives(int currentLives)

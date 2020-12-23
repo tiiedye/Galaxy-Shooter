@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private GameObject _enemyLaserPrefab;
     private float _fireRate = 3.0f;
     private float _canFire = -1.0f;
+    private UIManager _uiManager;
 
     void Start()
     {
@@ -29,6 +30,11 @@ public class Enemy : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (_audioSource == null) {
             Debug.LogError("AudioSource is NULL");
+        }
+
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        if (_uiManager == null) {
+            Debug.LogError("UI Manager is NULL");
         }
     }
 
@@ -89,7 +95,7 @@ public class Enemy : MonoBehaviour
                 Destroy(other.gameObject);
 
                 if (_player != null) {
-                    _player.AddScore();
+                    _uiManager.UpdateScore();
                 }
 
                 _anim.SetTrigger("OnEnemyDeath");

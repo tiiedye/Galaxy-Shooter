@@ -212,12 +212,4 @@ public class Player : MonoBehaviour
         _shieldActive = true;
         _shieldVisualizer.SetActive(true);
     }
-
-    // method to add 10 to score
-    // communicate w/ UI to update the score
-    public void AddScore()
-    {
-        _score += 10;
-        _uiManager.UpdateScore(_score);
-    }
 }
